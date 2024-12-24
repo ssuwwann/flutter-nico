@@ -1,19 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:nico/widget/Button.dart';
 
 void main() {
   runApp(App());
 }
 
 class App extends StatelessWidget {
+  const App({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: Color(0xFF181818),
         body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 40), // x축 패딩
+          padding: EdgeInsets.symmetric(
+            horizontal: 40,
+          ),
           child: Column(
-            // 위에 쌓기 위해 Column을 쓴다.
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
                 height: 80,
@@ -42,7 +47,46 @@ class App extends StatelessWidget {
                     ],
                   )
                 ],
-              )
+              ),
+              SizedBox(
+                height: 120,
+              ),
+              Text(
+                "Total Balance",
+                style: TextStyle(
+                  color: Colors.white.withOpacity(0.8),
+                  fontSize: 22,
+                ),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Text(
+                "\$50,000",
+                style: TextStyle(
+                  color: Colors.white.withOpacity(0.8),
+                  fontSize: 42,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  MyButton(
+                    text: 'Transfer',
+                    bgColor: Colors.amber,
+                    textColor: Colors.black,
+                  ),
+                  MyButton(
+                    text: 'Request',
+                    bgColor: Color(0xFF1F2123),
+                    textColor: Colors.white,
+                  ),
+                ],
+              ),
             ],
           ),
         ),
